@@ -1,6 +1,9 @@
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class Utils {
     /**
@@ -11,6 +14,7 @@ class Utils {
      * @return
      */
     public static int sumSameElementByValue(List<Integer> dices, int n, int limits) {
+        if (n % 2 == 0 && Collections.frequency(dices, 2) == 1) return 0;
         limits = limits == 0 ? dices.size() : limits;
         int finalLimits = limits*n;
         return dices.stream()
@@ -27,14 +31,17 @@ class Utils {
      * @return
      */
     public static int sumElementsByValueWithLimits(List<Integer> dices, int limit, int limitOnSameElement) {
+        Supplier<Stream<Integer>> streamSupplier
+            = () -> dices
+            .stream()
+            .sorted(Comparator.reverseOrder())
+            .distinct()
+            .map(element -> sumSameElementByValue(dices, element, limitOnSameElement))
+            .filter(value -> dices.contains(value / limitOnSameElement) && value % limitOnSameElement == 0);
+
         return dices.stream().distinct().collect(Collectors.toList()).size() == dices.size() ? 0:
-            dices
-                .stream()
-                .sorted(Comparator.reverseOrder())
-                .distinct()
-                .map(element -> sumSameElementByValue(dices, element, limitOnSameElement))
-                .filter(value -> dices.contains(value / limitOnSameElement) && value % limitOnSameElement == 0)
-                .limit(limit).mapToInt(Integer::intValue).sum();
+            1 == limit ? streamSupplier.get().limit(limit).mapToInt(Integer::intValue).sum():
+                streamSupplier.get().count() != 1 ? streamSupplier.get().limit(limit).mapToInt(Integer::intValue).sum(): 0 ;
     }
 
 }
