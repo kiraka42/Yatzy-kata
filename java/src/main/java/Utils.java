@@ -14,7 +14,7 @@ class Utils {
      * @return
      */
     public static int sumSameElementByValue(List<Integer> dices, int n, int limits) {
-        if (n % 2 == 0 && Collections.frequency(dices, 2) == 1) return 0;
+        if (n % 2 == 0 && Collections.frequency(dices, n) == 1) return 0;
         limits = limits == 0 ? dices.size() : limits;
         int finalLimits = limits*n;
         return dices.stream()
