@@ -10,12 +10,14 @@ public class YatzyTest {
         assertEquals(15, Yatzy.chance(new Dices(2,3,4,5,1)));
     }
 
-    @Test public void yatzy_scores_50() {
+    @Test
+    public void yatzy_scores_50() {
         assertEquals(50, Yatzy.yatzy(new Dices(6,6,6,6,6)));
         assertEquals(0, Yatzy.yatzy(new Dices(6,6,6,6,3)));
     }
 
-    @Test public void test_ones() {
+    @Test
+    public void test_ones() {
         assertEquals(2, Yatzy.ones(new Dices(1,2,1,4,5)));
         assertEquals(0, Yatzy.ones(new Dices(6,2,2,4,5)));
         assertEquals(5, Yatzy.ones(new Dices(1,1,1,1,1)));
@@ -65,9 +67,11 @@ public class YatzyTest {
 
     @Test
     public void two_Pair() {
-        assertEquals(0, Yatzy.two_pair(new Dices(1,2,3,4,5)));
+        assertEquals(0, Yatzy.two_pair(new Dices(1,1,2,3,4)));
+        assertEquals(0, Yatzy.two_pair(new Dices(3,3,3,3,1)));
         assertEquals(8, Yatzy.two_pair(new Dices(1,1,2,3,3)));
         assertEquals(16, Yatzy.two_pair(new Dices(3,3,5,5,5)));
+        assertEquals(6, Yatzy.two_pair(new Dices(1,1,2,2,2)));
     }
 
     @Test
