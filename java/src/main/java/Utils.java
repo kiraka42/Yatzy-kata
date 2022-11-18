@@ -39,9 +39,8 @@ class Utils {
             .map(element -> sumSameElementByValue(dices, element, limitOnSameElement))
             .filter(value -> dices.contains(value / limitOnSameElement) && value % limitOnSameElement == 0);
 
-        return dices.stream().distinct().collect(Collectors.toList()).size() == dices.size() ? 0:
-            1 == limit ? streamSupplier.get().limit(limit).mapToInt(Integer::intValue).sum():
-                streamSupplier.get().count() != 1 ? streamSupplier.get().limit(limit).mapToInt(Integer::intValue).sum(): 0 ;
+        return dices.stream().distinct().count() == dices.size() ? 0:
+            1 == limit || streamSupplier.get().count() != 1  ? streamSupplier.get().limit(limit).mapToInt(Integer::intValue).sum(): 0 ;
     }
 
 }
