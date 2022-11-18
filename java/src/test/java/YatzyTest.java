@@ -63,6 +63,7 @@ public class YatzyTest {
         assertEquals(6, Yatzy.score_pair(new Dices(3,3,3,4,1 )));
         assertEquals(6, Yatzy.score_pair(new Dices(3,3,3,3,1)));
         assertEquals(8, Yatzy.score_pair(new Dices(3,3,3,4,4)));
+        assertEquals(12, Yatzy.score_pair(new Dices(1,1,6,2,6)));
     }
 
     @Test
