@@ -64,6 +64,9 @@ public class YatzyTest {
         assertEquals(6, Yatzy.score_pair(new Dices(3,3,3,3,1)));
         assertEquals(8, Yatzy.score_pair(new Dices(3,3,3,4,4)));
         assertEquals(12, Yatzy.score_pair(new Dices(1,1,6,2,6)));
+        assertEquals(6,  Yatzy.score_pair(new Dices(3, 4, 3, 5, 6)));
+        assertEquals(10,  Yatzy.score_pair(new Dices(5, 3, 3, 3, 5)));
+        assertEquals(12,  Yatzy.score_pair(new Dices(5, 3, 6, 6, 5)));
     }
 
     @Test
@@ -73,6 +76,8 @@ public class YatzyTest {
         assertEquals(8, Yatzy.two_pair(new Dices(1,1,2,3,3)));
         assertEquals(16, Yatzy.two_pair(new Dices(3,3,5,5,5)));
         assertEquals(6, Yatzy.two_pair(new Dices(1,1,2,2,2)));
+        assertEquals(16, Yatzy.two_pair(new Dices(3, 3, 5, 4, 5)));
+        assertEquals(16, Yatzy.two_pair(new Dices(3, 3, 5, 5, 5)));
     }
 
     @Test
@@ -90,6 +95,7 @@ public class YatzyTest {
         assertEquals(0, Yatzy.four_of_a_kind(new Dices(1,2,3,4,5)));
         assertEquals(12, Yatzy.four_of_a_kind(new Dices(3,3,3,3,5)));
         assertEquals(20, Yatzy.four_of_a_kind(new Dices(5,5,5,4,5)));
+        assertEquals(12, Yatzy.four_of_a_kind(new Dices(3, 3, 3, 3, 3)));
     }
 
     @Test
