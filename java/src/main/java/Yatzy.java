@@ -87,7 +87,7 @@ public class Yatzy {
      * @param dices the dices roll
      * @return the score
      */
-    public static int score_pair(Dices dices) {
+    public static int scorePair(Dices dices) {
         return dices.scorePair();
     }
 
@@ -97,7 +97,7 @@ public class Yatzy {
      * @param dices the dices roll
      * @return the score
      */
-    public static int two_pair(Dices dices) {
+    public static int twoPair(Dices dices) {
         return dices.twoPair();
     }
 
@@ -107,7 +107,7 @@ public class Yatzy {
      * @param dices the dices roll
      * @return the score
      */
-    public static int three_of_a_kind(Dices dices) {
+    public static int threeOfAKind(Dices dices) {
         return dices.threeOfAKind();
     }
 
@@ -117,7 +117,7 @@ public class Yatzy {
      * @param dices the dices roll
      * @return the score
      */
-    public static int four_of_a_kind(Dices dices) {
+    public static int fourOfAKind(Dices dices) {
         return dices.fourOfAKind();
     }
 
@@ -151,6 +151,3 @@ public class Yatzy {
         return dices.fullHouse();
     }
 }
-
-
-
